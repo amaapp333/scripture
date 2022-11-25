@@ -8,8 +8,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    />p
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <title>banner demo</title>
     <style>
         .bodyStyle{
@@ -21,32 +20,36 @@
 <body>
 
 <div id="app"></div>
+
 <div class="bodyStyle">
     <h1>Maliek News</h1>
     <lu>
-        <li><a href="javascript:admob.cacheInterstitial();">load Interstitial</a></li>
+        <li><a href="javascript:admob.cacheInterstitial();">Load Interstitial</a></li>
         <br/>
-        <li><a href="javascript:showInterstitial();">show Interstitial</a></li>
+        <li><a href="javascript:showInterstitial();">Show Interstitial</a></li>
         <br/>
-        <li><a href="javascript:showTestBanner();">show test banner</a></li>
+        <li><a href="javascript:showTestBanner();">Show test banner</a></li>
         <br/>
-        <li><a href="javascript:admob.showBannerAbsolute(admob.BannerSize.BANNER,0,70);">banner 1</a></li>
+        <li><a href="javascript:admob.showBannerAbsolute(admob.BannerSize.BANNER,0,70);">Banner 1</a></li>
         <br/>
-        <li><a href="javascript:admob.showBannerAbsolute(admob.BannerSize.BANNER,30,70);">banner 2</a></li>
+        <li><a href="javascript:admob.showBannerAbsolute(admob.BannerSize.BANNER,30,70);">Banner 2</a></li>
         <br/>
-        <li><a href="javascript:admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_CENTER,null)">banner 3</a></li>
+        <li><a href="javascript:admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_CENTER,null)">Banner 3</a></li>
         <br/>
-        <li><a href="javascript:admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP,null)">banner 4</a></li>
+        <li><a href="javascript:admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP,null)">Banner 4</a></li>
         <br/>
         <li><a href="javascript:admob.hideBanner()">hide banner</a></li>
     </lu>
 </div>
+
 <div id="alertdiv" />
+
 <script type="text/javascript" src="cordova.js"></script>
+
 <script type="text/javascript">
 function showTestBanner(){
  		var admobParam=new  admob.Params();
-        //admobParam.extra={'keyword':"admob phonegame"};
+        //admobParam.extra={'keyword':"Android Blogging"};
         //admobParam.isForChild=true;
         admobParam.isTesting=true;
         admob.showBanner(admob.BannerSize.BANNER,admob.Position.TOP_CENTER,admobParam);
@@ -71,6 +74,7 @@ function showTestBanner(){
     }
     function onDeviceReady() {
     	admob.initAdmob("ca-app-pub-3940256099942544/2934735716","ca-app-pub-3940256099942544/4411468910");
+
         document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
         document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
         document.addEventListener(admob.Event.onBannerFailedReceive,onReceiveFail, false);
