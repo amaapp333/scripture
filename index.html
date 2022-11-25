@@ -1,7 +1,8 @@
 <html>
 <head>
-    <title>cordova admob</title>
+    <title>Maliek Galant</title>
     <meta charset="UTF-8"/>
+
     <link rel="stylesheet" type="text/css" href="base.css"/>
     <link rel="stylesheet" type="text/css" href="icons.css"/>
     <link rel="stylesheet" type="text/css" href="buttons.css"/>
@@ -12,6 +13,7 @@
     <script type="text/javascript" charset="utf-8" src="ui.js"></script>
 
     <script type="text/javascript" src="cordova.js"></script>
+
     <script type="text/javascript">
         var testingParam;
         function onReceiveFail(message) {
@@ -103,7 +105,7 @@
         }
         function showBannerWithParam() {
             var admobParam = new admob.Params();
-            admobParam.extra = {'keyword': "admob phonegame"};
+            admobParam.extra = {'keyword': "Android Blogging"};
             admobParam.isForChild = true;
             admobParam.isTesting = true;
             admob.showBanner(admob.BannerSize.BANNER, admob.Position.TOP_CENTER, admobParam);
@@ -115,17 +117,21 @@
 <div id="afui">
     <div id="header"></div>
     <div id="content">
+
         <div id="deviceready">
+         <header><h1>Maliek News</h1></header>
 
         </div>
+
         <div class='panel' id='bannerPanel'>
-            <header><h1>Maliek News</h1></header>
+            
             <div class="button-grouped  flex tabbed" style="text-align: center; margin-left: 10%;margin-right: 10%; ">
                 <a class="button  pressed" data-transition="none"
-                   onclick="$('#relationBannerDiv').show();$('#absoluteBannerDiv').hide();">relation</a>
+                   onclick="$('#relationBannerDiv').show();$('#absoluteBannerDiv').hide();">Relation</a>
                 <a class="button" data-transition="none"
-                   onclick="$('#relationBannerDiv').hide();$('#absoluteBannerDiv').show();">absolute</a>
+                   onclick="$('#relationBannerDiv').hide();$('#absoluteBannerDiv').show();">Absolute</a>
             </div>
+
             <div id="relationBannerDiv">
                 <form>
                     <label for="relationBannerSize">banner size</label>
@@ -155,8 +161,8 @@
                         <option value="11">BOTTOM_APP</option>
                     </select>
                     <a class="button yellow" onclick="hideRelationBanner()">hide banner</a> <a class="button green"
-                                                                                               onclick="showRelationBanner()">show
-                    banner</a>
+                                                                                               onclick="showRelationBanner()">Show
+                    Banner</a>
                 </form>
                 <a class="button green" onclick="showReallyBanner()">show really banner</a>
                 <a class="button green" onclick="showBannerWithParam()">show with param</a>
@@ -183,6 +189,7 @@
                 </form>
             </div>
         </div>
+
         <div class='panel' id='interstitialPanel'>
             <header><h1>Interstitial</h1></header>
             <a class="button yellow" onclick="cacheInterstitial()">cache interstitial</a>
@@ -204,6 +211,7 @@
             </label>
             <a class="button green" onclick="setAdmobID()">save</a>
         </div>
+
         <div class='panel' id='aboutPanel'>
             <header><h1>About</h1></header>
             <p>
@@ -214,6 +222,7 @@
             </p>
         </div>
     </div>
+
     <textarea rows="6" placeholder="event log" id="logArea" style="overflow: auto"></textarea>
 
     <div id="navbar">
