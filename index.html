@@ -7,6 +7,54 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="msapplication-tap-highlight" content="no" />
     <title>Interstitial</title>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+      window.googletag = window.googletag || {cmd: []};
+
+      // GPT ad slots
+      var anchorSlot;
+      var staticSlot;
+
+      googletag.cmd.push(function() {
+        // Define an anchor ad slot at the top of the viewport.
+        // Note: a single anchor ad slot may be defined per page, at either the
+        // top or bottom of the viewport.
+        //
+        // Be aware that anchor ads are not limited to mobile devices. If you
+        // serve the same code to both mobile and non-mobile users, it is
+        // recommended to explicitly define when and where anchor ads should be
+        // shown for each environment. Here we use a basic check of viewport
+        // width to create a top anchor on mobile and a bottom anchor on
+        // non-mobile devices.
+        if (document.body.clientWidth <= 500) {
+          anchorSlot = googletag.defineOutOfPageSlot(
+            '/6355419/Travel', googletag.enums.OutOfPageFormat.TOP_ANCHOR);
+        } else {
+          anchorSlot = googletag.defineOutOfPageSlot(
+            '/6355419/Travel', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+        }
+
+        // Anchor slots return null if the page or device does not support
+        // anchors.
+        if (anchorSlot) {
+          anchorSlot
+              .setTargeting('test', 'anchor')
+              .addService(googletag.pubads());
+
+          document.getElementById('status').innerText =
+            '   ';
+        }
+
+        // Define static ad slots.
+        staticSlot = googletag.defineSlot(
+              '/6355419/Travel/Europe', [100, 100], 'static-ad-1')
+            .addService(googletag.pubads());
+
+        // Enable SRA and services.
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    </script>
     <style>
         .bodyStyle{
             font-size: 32px;
@@ -17,51 +65,27 @@
     <!---->
 </head>
 <body>
-
+    <div id="page-content" style="height: 900vh;">
     <div class="bodyStyle">
 
-    <h1>Maliek News</h1>
+    <h1 id="status">Maliek News</h1>
 
+      
+    </div>
+    </div>
 
+    <script>
+        googletag.cmd.push(function() {
+          // Ensure the first call to display comes after static ad slot
+          // divs are defined.
+          googletag.display(staticSlot);
+        });
+      </script>
     
-</div>
-<div id="relationBannerDiv">
-                <form>
-                    <label for="relationBannerSize">banner size</label>
-                    <select id="relationBannerSize">
-                        <option value="BANNER">BANNER</option>
-                        <option value="IAB_MRECT">IAB_MRECT</option>
-                        <option value="IAB_BANNER">IAB_BANNER</option>
-                        <option value="IAB_LEADERBOARD">IAB_LEADERBOARD</option>
-                        <option value="SMART_BANNER">SMART_BANNER</option>
-                        <option value="IAB_WIDE_SKYSCRAPER">IAB_WIDE_SKYSCRAPER</option>
-                        <option value="IPHONE_LANDSCAPE">IPHONE_LANDSCAPE</option>
-                        <option value="IPAD_PORTRAIT">IPAD_PORTRAIT</option>
-                        <option value="IPAD_LANDSCAPE">IPAD_LANDSCAPE</option>
-                    </select>
-                    <label for="relationBannerPosition">position</label>
-                    <select id="relationBannerPosition">
-                        <option value="1">TOP_LEFT</option>
-                        <option value="2">TOP_CENTER</option>
-                        <option value="3">TOP_RIGHT</option>
-                        <option value="4">MIDDLE_LEFT</option>
-                        <option value="5">MIDDLE_CENTER</option>
-                        <option value="6">MIDDLE_RIGHT</option>
-                        <option value="7">BOTTOM_LEFT</option>
-                        <option value="8">BOTTOM_CENTER</option>
-                        <option value="9">BOTTOM_RIGHT</option>
-                        <option value="10">TOP_APP</option>
-                        <option value="11">BOTTOM_APP</option>
-                    </select>
-                    <a class="button yellow" onclick="hideRelationBanner()">hide banner</a> <a class="button green"
-                                                                                               onclick="showRelationBanner()">show
-                    banner</a>
-                </form>
-                <a class="button green" onclick="showReallyBanner()">show really banner</a>
-                <a class="button green" onclick="showBannerWithParam()">show with param</a>
-            </div>
 
-        
-            
+
+<div id="static-ad-1" style="width: 100px; height: 100px;"></div>
+ 
+
 </body>
 </html>
