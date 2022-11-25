@@ -15,7 +15,7 @@
     <engines>
         <engine name="cordova" version=">=3.0" />
     </engines>
-    <js-module src="wwwp/admob.js" name="admob">
+    <js-module src="www/admob.js" name="admob">
         <clobbers target="window.admob"/>
     </js-module>
     <platform name="android">
