@@ -1,10 +1,18 @@
 <html>
 <head>
-    <title>Maliek Galant</title>
+   
     <meta charset="UTF-8"/>
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>Interstitial</title>
+    <style>
+        .bodyStyle{
+            font-size: 32px;
+        }
+    </style>
 
-    
     <script type="text/javascript">
         var testingParam;
         function onReceiveFail(message) {
@@ -106,18 +114,52 @@
 </head>
 <body>
 
+    <div class="bodyStyle">
+    <h1>Interstitial Admob</h1>
+    <lu>
+        <li><a href="javascript:admob.cacheInterstitial();">load Interstitial</a></li>
+        <br/><br/>
+        <li><a href="javascript:showInterstitial();">show Interstitial</a></li>
+    </lu>
+
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript">
+    function showInterstitial(){
+        admob.isInterstitialReady(function(isReady){
+            if(isReady){
+                admob.showInterstitial();
+            }else{
+            	alert("need cached before show");
+            }
+        });
+    }
+    function onInterstitialReceive (message) {
+        alert("onMInterstitialReceive ,you can show it now");
+    }
+    function onReceiveFail (message) {
+    	var msg=admob.Error[message.data];
+        if(msg==undefined){
+           msg=message.data;
+        }
+       alert("load fail: "+message.type+"  "+msg);
+    }
+    function onDeviceReady() {
+        admob.initAdmob("banner ID","interstitial ID");
+        document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
+        document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
+    }
+
+    document.addEventListener('deviceready',onDeviceReady, false);
+   </script>
+
     <div id="header">
-    <h1>Maliek News</h1>
+    
 
-    <a class="button  pressed" data-transition="none"
-                   onclick="$('#relationBannerDiv').show();$('#absoluteBannerDiv').hide();">Relation</a>
-    <a class="button" data-transition="none"
-                   onclick="$('#relationBannerDiv').hide();$('#absoluteBannerDiv').show();">Absolute</a>
-         
-
+    
 
     </div>
-
+    
 
     <div id="content">
 
@@ -128,11 +170,7 @@
 
      </div>
 
-        <div class='panel' id='bannerPanel'>
-           
-            
-        </div>
-
+        
             
 </body>
 </html>
