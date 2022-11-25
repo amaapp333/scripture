@@ -6,10 +6,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Georgia|Open+Sans|Roboto">
 
+  <script>
+  // Make sure that the googlefc property exists on the window.
+  window.googlefc = window.googlefc || {};
+  // To guarantee functionality, this must go before the FC tag on the page.
+  googlefc.controlledMessagingFunction = (message) => {
+    // How many pageviews before the message is shown.
+    var freePageviewsLimit = 3;
+
+    // Check how many pages the user has seen.
+    var pagesViewed = getPagesViewed();
+
+    // Show the message if the user has seen more pages than the free limit.
+    if (pagesViewed >= freePageviewsLimit) {
+      message.proceed(true);
+    } else {
+      message.proceed(false);
+    }
+  };
+</script>
+
   <!-- pwa.html should run at `/pwa` -->
   <script>
-    if (window.location.pathname.indexOf('/examples') == 0) {
-      window.location.assign('/pwa');
+    if (window.location.pathname.indexOf('/') == 0) {
+      window.location.assign('/');
     }
   </script>
 
