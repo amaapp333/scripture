@@ -2,21 +2,19 @@
 <head>
    
     <meta charset="UTF-8"/>
+
     <meta name="format-detection" content="telephone=no" />
-    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="msapplication-tap-highlight" content="no" />
  
     <title>Interstitial</title>
+
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3_dai.js"></script>
-    <script src="https://amaapp333.github.io/scripture/dai.js"></script>
-    <link rel="stylesheet" href="https://amaapp333.github.io/scripture/dai.css" type="text/css">
-
+     
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     
     <style>
-        body {
+body {
   font-family: arial, verdana, sans-serif;
   overflow: hidden;
 }
@@ -154,8 +152,8 @@ input[type="text"] {
 #ad-ui {
   cursor: pointer;
 }
-        .bodyStyle{
-            font-size: 32px;
+  .bodyStyle{
+       font-size: 32px;
         }
     </style>
     <!---->
@@ -165,16 +163,29 @@ input[type="text"] {
   <body>
     <div align="center">
     <div class="bodyStyle">
+    <div id="container">
+    
 
     <h1>Maliek News</h1>
+
+    <header>YouTube Videos</header>
 
     
     </div>
     </div>
-
-      <div id="container">
-      <header>IMA SDK DAI Demo (HLS.JS)</header>
-
+    
+     <div id="video-player">
+      <video id="content"></video>
+      <div id="ad-ui"></div>
+    </div>
+    <div id="progress"></div>
+    <div id="buttons">
+      <button id="play-button" class="button">Play</button>
+      <button id="bookmark-button" class="button">Save Bookmark to URL</button>
+    </div>
+    <div id="companion"></div>
+    </div>
+      
     <div id="input-wrapper">
       <strong>Stream type:</strong>
       <div class="radio-group">
@@ -201,17 +212,7 @@ input[type="text"] {
       </div>
     </div>
 
-    <div id="video-player">
-      <video id="content"></video>
-      <div id="ad-ui"></div>
-    </div>
-    <div id="progress"></div>
-    <div id="buttons">
-      <button id="play-button" class="button">Play</button>
-      <button id="bookmark-button" class="button">Save Bookmark to URL</button>
-    </div>
-    <div id="companion"></div>
-  </div>
+    
     
 
 </body>
