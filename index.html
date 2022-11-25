@@ -13,118 +13,28 @@
         }
     </style>
 
-    <script type="text/javascript">
-        var testingParam;
-        function onReceiveFail(message) {
-            var msg = admob.Error[message.data];
-            if (msg == undefined) {
-                msg = message.data;
-            }
-            $.ui.popup(msg);
-            $("#logArea").val($("#logArea").val() + msg);
-        }
-        function onReceiveSuccess(message) {
-            var msg = message.type + "\n";
-            $("#logArea").val($("#logArea").val() + msg);
-            $("#showInterstitialButton").removeClass("gray");
-            $("#showInterstitialButton").addClass("green");
-        }
-        function onDeviceReady() {
-
-            $.ui.toggleNavMenu();
-        }
-        function setAdmobID() {
-            testingParam = new admob.Params();
-            testingParam.isTesting = $("#toggle").prop("checked");
-            var bannerID = $("#bannerID").val();
-            var interstitialID = $("#interstitialID").val();
-            admob.initAdmob(bannerID, interstitialID);
-            document.addEventListener(admob.Event.onInterstitialFailedReceive, onReceiveFail, false);
-            document.addEventListener(admob.Event.onBannerFailedReceive, onReceiveFail, false);
-            document.addEventListener(admob.Event.onInterstitialReceive, onReceiveSuccess, false);
-            $.ui.toggleNavMenu(true);
-        }
-        document.addEventListener('deviceready', onDeviceReady, false);
-
-    </script>
-    <script type="text/javascript">
-        function hideRelationBanner() {
-            admob.hideBanner();
-        }
-        function showRelationBanner() {
-            var bannerSize = $("#relationBannerSize").val();
-            var bannerPosition = $("#relationBannerPosition").val();
-            admob.showBanner(admob.BannerSize[bannerSize], bannerPosition, testingParam);
-        }
-        function hideABSBanner() {
-            admob.hideBanner();
-        }
-        function showABSBanner() {
-            var bannerSize = $("#absBannerSize").val();
-            var positionX = $("#positionX").val();
-            var positionY = $("#positionY").val();
-            admob.showBannerAbsolute(admob.BannerSize[bannerSize], positionX, positionY, testingParam);
-        }
-        function cacheInterstitial() {
-            admob.cacheInterstitial(testingParam);
-        }
-        function cacheOrShowInterstitial() {
-            admob.isInterstitialReady(function testResult(result) {
-                if (!result) {
-                    admob.cacheInterstitial(testingParam);
-                } else {
-                    admob.showInterstitial();
-                    $("#showInterstitialButton").removeClass("green");
-                    $("#showInterstitialButton").addClass("gray");
-                }
-            });
-        }
-        function testCacheInterstitial() {
-            admob.isInterstitialReady(function testResult(result) {
-                if (result) {
-                    $.ui.popup("cached success");
-                } else {
-                    $.ui.popup(" not cached");
-                }
-            });
-        }
-        function showInterstitial() {
-            admob.isInterstitialReady(function testResult(result) {
-                if (result) {
-                    admob.showInterstitial();
-                    $("#showInterstitialButton").removeClass("green");
-                    $("#showInterstitialButton").addClass("gray");
-                } else {
-                    $.ui.popup("not cached");
-                }
-            });
-        }
-        function showReallyBanner() {
-            admob.showBanner(admob.BannerSize.BANNER, admob.Position.TOP_CENTER);
-        }
-        function showBannerWithParam() {
-            var admobParam = new admob.Params();
-            admobParam.extra = {'keyword': "Android Blogging"};
-            admobParam.isForChild = true;
-            admobParam.isTesting = true;
-            admob.showBanner(admob.BannerSize.BANNER, admob.Position.TOP_CENTER, admobParam);
-        }
-    </script>
+    
     <!---->
 </head>
 <body>
 
     <div class="bodyStyle">
-    <h1>Interstitial Admob</h1>
+
+    
+
     <lu>
-        <li><a href="javascript:admob.cacheInterstitial();">load Interstitial</a></li>
+
+        <li><a href="javascript:admob.cacheInterstitial();">Load Interstitial</a></li>
         <br/><br/>
-        <li><a href="javascript:showInterstitial();">show Interstitial</a></li>
+        <li><a href="javascript:showInterstitial();">Show Interstitial</a></li>
+
     </lu>
 
 </div>
-<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="framework.js"></script>
+
 <script type="text/javascript">
+
     function showInterstitial(){
         admob.isInterstitialReady(function(isReady){
             if(isReady){
@@ -145,7 +55,7 @@
        alert("load fail: "+message.type+"  "+msg);
     }
     function onDeviceReady() {
-        admob.initAdmob("banner ID","interstitial ID");
+        admob.initAdmob("ca-app-pub-6607653375286321/6338346555","ca-app-pub-6607653375286321/6302192693");
         document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
         document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
     }
@@ -153,12 +63,9 @@
     document.addEventListener('deviceready',onDeviceReady, false);
    </script>
 
-    <div id="header">
-    
-
-    
-
-    </div>
+   <div id="header">
+   <h1>Interstitial</h1>
+   </div>
     
 
     <div id="content">
