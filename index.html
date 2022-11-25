@@ -118,8 +118,15 @@
     <div id="header">
     <header><h1>Maliek News</h1></header>
 
+    <a class="button  pressed" data-transition="none"
+                   onclick="$('#relationBannerDiv').show();$('#absoluteBannerDiv').hide();">Relation</a>
+    <a class="button" data-transition="none"
+                   onclick="$('#relationBannerDiv').hide();$('#absoluteBannerDiv').show();">Absolute</a>
+         
+
 
     </div>
+
 
     <div id="content">
 
@@ -132,12 +139,7 @@
 
         <div class='panel' id='bannerPanel'>
            
-            <div class="button-grouped  flex tabbed" style="text-align: center; margin-left: 10%;margin-right: 10%; ">
-                <a class="button  pressed" data-transition="none"
-                   onclick="$('#relationBannerDiv').show();$('#absoluteBannerDiv').hide();">Relation</a>
-                <a class="button" data-transition="none"
-                   onclick="$('#relationBannerDiv').hide();$('#absoluteBannerDiv').show();">Absolute</a>
-            </div>
+            
         </div>
 
             
