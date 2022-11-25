@@ -6,26 +6,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Georgia|Open+Sans|Roboto">
 
-  <script>
-  // Make sure that the googlefc property exists on the window.
-  window.googlefc = window.googlefc || {};
-  // To guarantee functionality, this must go before the FC tag on the page.
-  googlefc.controlledMessagingFunction = (message) => {
-    // How many pageviews before the message is shown.
-    var freePageviewsLimit = 3;
-
-    // Check how many pages the user has seen.
-    var pagesViewed = getPagesViewed();
-
-    // Show the message if the user has seen more pages than the free limit.
-    if (pagesViewed >= freePageviewsLimit) {
-      message.proceed(true);
-    } else {
-      message.proceed(false);
-    }
-  };
-</script>
-
   <!-- pwa.html should run at `/pwa` -->
   <script>
     if (window.location.pathname.indexOf('/examples) == 0) {
@@ -119,25 +99,61 @@
       </article>
       <article class="card">
         <a href="/pwa/examples/youtube.amp.html">
-          <h4>YouTube</h4>
+          <h4>YouTube Ads</h4>
           <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
         </a>
       </article>
       <article class="card">
         <a href="/pwa/examples/analytics.amp.html">
-          <h4>Analytics</h4>
+          <h4>Analytics Amp</h4>
           <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
         </a>
       </article>
       <article class="card">
         <a href="/pwa/examples/a4a.amp.html">
-          <h4>A4A</h4>
+          <h4>A4A News</h4>
           <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
         </a>
       </article>
       <article class="card">
         <a href="/pwa/examples/bind/basic.amp.html">
-          <h4>amp-bind</h4>
+          <h4>Maliek News</h4>
+          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
+        </a>
+      </article>
+      <article class="card">
+        <a href="/pwa/examples/analytics.amp.html">
+          <h4>Answers</h4>
+          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
+        </a>
+      </article>
+      <article class="card">
+        <a href="/pwa/examples/a4a.amp.html">
+          <h4>A4A Ads</h4>
+          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
+        </a>
+      </article>
+      <article class="card">
+        <a href="/pwa/examples/bind/basic.amp.html">
+          <h4>Articles</h4>
+          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
+        </a>
+      </article>
+      <article class="card">
+        <a href="/pwa/examples/analytics.amp.html">
+          <h4>Analytics Ads</h4>
+          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
+        </a>
+      </article>
+      <article class="card">
+        <a href=" html">
+          <h4>Analytics</h4>
+          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
+        </a>
+      </article>
+      <article class="card">
+        <a href="/ads.html">
+          <h4>Advertisement</h4>
           <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
         </a>
       </article>
