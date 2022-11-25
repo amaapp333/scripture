@@ -7,83 +7,108 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="msapplication-tap-highlight" content="no" />
     <title>Interstitial</title>
+
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-    <script>
-      window.googletag = window.googletag || {cmd: []};
-
-      // GPT ad slots
-      var anchorSlot;
-      var staticSlot;
-
-      googletag.cmd.push(function() {
-        // Define an anchor ad slot at the top of the viewport.
-        // Note: a single anchor ad slot may be defined per page, at either the
-        // top or bottom of the viewport.
-        //
-        // Be aware that anchor ads are not limited to mobile devices. If you
-        // serve the same code to both mobile and non-mobile users, it is
-        // recommended to explicitly define when and where anchor ads should be
-        // shown for each environment. Here we use a basic check of viewport
-        // width to create a top anchor on mobile and a bottom anchor on
-        // non-mobile devices.
-        if (document.body.clientWidth <= 500) {
-          anchorSlot = googletag.defineOutOfPageSlot(
-            '/6355419/Travel', googletag.enums.OutOfPageFormat.TOP_ANCHOR);
-        } else {
-          anchorSlot = googletag.defineOutOfPageSlot(
-            '/6355419/Travel', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
-        }
-
-        // Anchor slots return null if the page or device does not support
-        // anchors.
-        if (anchorSlot) {
-          anchorSlot
-              .setTargeting('test', 'anchor')
-              .addService(googletag.pubads());
-
-          document.getElementById('status').innerText =
-            '   ';
-        }
-
-        // Define static ad slots.
-        staticSlot = googletag.defineSlot(
-              '/6355419/Travel/Europe', [100, 100], 'static-ad-1')
-            .addService(googletag.pubads());
-
-        // Enable SRA and services.
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-      });
-    </script>
+    
     <style>
         .bodyStyle{
             font-size: 32px;
         }
+
+        .ad-timer {
+            display: inline-block;
+            margin-top: 375px;
+            padding: 15px;
+            border: 1px solid #000;
+        }
     </style>
     <!---->
+<script>
+ ...
+
+  var streamManager;   // used to request ad-enabled streams.
+  var hls = new Hls(); // hls.js video player
+  var videoElement;
+  var adUiElement;
+  var timerElement
+
+  ...
+
+  function initPlayer() {
+    videoElement = document.getElementById('video');
+    adUiElement = document.getElementById('adUi');
+    timerElement = document.getElementById('ad-timer');
+
+  ...
+
+  streamManager.addEventListener(
+    [google.ima.dai.api.StreamEvent.Type.LOADED,
+     google.ima.dai.api.StreamEvent.Type.ERROR,
+     google.ima.dai.api.StreamEvent.Type.AD_BREAK_STARTED,
+     google.ima.dai.api.StreamEvent.Type.AD_BREAK_ENDED,
+     google.ima.dai.api.StreamEvent.Type.PAUSED,
+     google.ima.dai.api.StreamEvent.Type.RESUMED,
+     google.ima.dai.api.StreamEvent.Type.AD_PROGRESS],
+    onStreamEvent,
+    false);
+
+  ...
+
+  function onStreamEvent(e) {
+    switch (e.type) {
+      case google.ima.dai.api.StreamEvent.Type.LOADED:
+        console.log('Stream loaded');
+        loadUrl(e.getStreamData().url);
+        break;
+      case google.ima.dai.api.StreamEvent.Type.ERROR:
+        console.log('Error loading stream, playing backup stream.' + e);
+        loadUrl(BACKUP_STREAM);
+        break;
+      case google.ima.dai.api.StreamEvent.Type.AD_BREAK_STARTED:
+        console.log('Ad Break Started');
+        videoElement.controls = false;
+        adUiElement.style.display = 'block';
+        break;
+      case google.ima.dai.api.StreamEvent.Type.AD_PROGRESS:
+        var progressData = e.getStreamData().adProgressData;
+        var timeRemaining = Math.ceil(progressData.duration - progressData.currentTime);
+        timerElement.innerHTML = 'Ad finished in: ' + timeRemaining;
+        break;
+      case google.ima.dai.api.StreamEvent.Type.AD_BREAK_ENDED:
+        timerElement.innerHTML = 'Ad not currently playing.';
+        console.log('Ad Break Ended');
+        videoElement.controls = true;
+        adUiElement.style.display = 'none';
+        break;
+      default:
+        break;
+    }
+  }
+</script>
 </head>
-<body>
-    <div id="page-content" style="height: 900vh;">
+
+  <body onLoad="initPlayer()">
+  <h2>Best Demo</h2>
+
+   
+   
+
+   
+  
     <div class="bodyStyle">
 
-    <h1 id="status">Maliek News</h1>
+    <h1>Maliek News</h1>
 
-      
-    </div>
-    </div>
+    <div id="adUi"></div>
+    <div id="ad-timer">Ads not running.</div>
 
-    <script>
-        googletag.cmd.push(function() {
-          // Ensure the first call to display comes after static ad slot
-          // divs are defined.
-          googletag.display(staticSlot);
-        });
-      </script>
+    <video id="video"></video>
+
+
+    </div>
     
 
-
-<div id="static-ad-1" style="width: 100px; height: 100px;"></div>
- 
+    
 
 </body>
 </html>
