@@ -1,167 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>PWA</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Georgia|Open+Sans|Roboto">
+<!DOCTYPE html> 
+<html ⚡>
+ <head> <meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>An Encouraging Mobile Web Page</title> 
+<meta property="og:title" content="Aotearoa New Zealand..."> 
+<meta property="og:type" content="Motivation"> 
+<meta property="og:url" content="https://airbridge.ac.nz">
+<meta property="og:image" content="https://airbridge.ac.nz/img/aotearoa.png"> 
+<meta name="description" content="Travel and a story of the airbridge" /> 
+<link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js" /> 
+<script async src="https://cdn.ampproject.org/v0.js"></script> 
+<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" ></script> 
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway&display=swap" /> 
+<style amp-boilerplate> body { -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both; -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both; -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both; animation: -amp-start 8s steps(1, end) 0s 1 normal both; } @-webkit-keyframes -amp-start { from { visibility: hidden; } to { visibility: visible; } } @-moz-keyframes -amp-start { from { visibility: hidden; } to { visibility: visible; } } @-ms-keyframes -amp-start { from { visibility: hidden; } to { visibility: visible; } } @-o-keyframes -amp-start { from { visibility: hidden; } to { visibility: visible; } } @keyframes -amp-start { from { visibility: hidden; } to { visibility: visible; } } </style> <noscript ><style amp-boilerplate> body { -webkit-animation: none; -moz-animation: none; -ms-animation: none; animation: none; } </style></noscript > 
 
-  <!-- pwa.html should run at `/pwa` -->
-  <script>
-    if (window.location.pathname.indexOf('/examples) == 0) {
-      window.location.assign('/pwa');
-    }
-  </script>
+<link rel="canonical" href="." /> 
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Roboto, Arial;
-    }
+<title>A Mobile Page</title>
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 56px;
-      background: rgba(0, 0, 0, 0.9);
-      color: #eee;
-      display: flex;
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
+<style amp-custom> :root { --color-primary: #005af0; --checkBorderWidth: 21px; --checkHeight: 72px; --checkWidth: 36px; --checkBorderColor: #78b13f; } body { background: white; font-family: "Raleway", sans-serif; } .lightbox { background: rgba(0, 0, 0, 0.8); width: 100%; height: 100%; position: absolute; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; } .lightboxContent { text-align: center; width: 70%; } h1 { text-align: center; } .lightboxBtnContainer { height: 85vh; display: flex; align-items: center; justify-content: center; color: white; } .lightboxBtn { border-radius: 32px; background-color: #4caf50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 32px; cursor: pointer; } .lightboxBtn:active { background-color: #3e8e41; box-shadow: 0 5px #666; transform: translateY(4px); } .check { display: inline-block; transform: rotate(45deg); height: var(--checkHeight); width: var(--checkWidth); border-bottom: var(--checkBorderWidth) solid var(--checkBorderColor); border-right: var(--checkBorderWidth) solid var(--checkBorderColor); } .footer { font-size: 10px; text-align: center; text-decoration: none; } .smImg { max-width: 338px; } .box { box-shadow: 0 12px 48px 0 rgb(0 0 0 / 70%); } .box:hover { transition: 0.4s; background: #4caf50; box-shadow: 0 4px 12px 0 rgba(0, 0, 0 / 90%); border: 1px solid #ffa000; } .innerButton { font-size: 32px; border-radius: 8px; background: white; color: black; cursor: pointer; padding: 15px; } .innerButton:hover { transition: 0.1s; box-shadow: 0 4px 12px 0 rgba(0, 0, 0 / 90%); border: 3px solid #ffa000; } .lightboxBtnContainer { cursor: pointer; } </style> </head> <body> <div class="content"> <amp-lightbox id="my-lightbox" layout="nodisplay"> <div class="lightbox" on="tap:my-lightbox.close,firstPrompt.hide,secondPrompt.show" role="button" tabindex="0" > <div class="lightboxContent"> <div class="check"></div> <br> <br> <button class="innerButton">Awesome!!! Where to?</button> </div> </div> </amp-lightbox> <div tabindex="0" role="button" id="firstPrompt" on="tap:my-lightbox" class="lightboxBtnContainer"> 
+<button class="box lightboxBtn"> Going on holiday... click for an amazing high powered interactive web experience! </button> </div> <amp-lightbox id="my-lightbox2" layout="nodisplay"> <div class="lightbox" on="tap:my-lightbox2.close,secondPrompt.hide,thirdPrompt.show" role="button" tabindex="0" > <div class="lightboxContent"> <div class="check"></div> <br> <br> <button class="innerButton">Aotearoa New Zealand!</button> </div> </div> </amp-lightbox> <div tabindex="1" role="button" hidden id="secondPrompt" on="tap:my-lightbox2" class="lightboxBtnContainer"> 
+<button class="lightboxBtn"> Just my other homeland... </button> </div> 
+<amp-lightbox id="my-lightbox3" layout="nodisplay"> 
+<div class="lightbox" on="tap:my-lightbox3.close,thirdPrompt.hide,finalPrompt.show" role="button" tabindex="0" > 
+<div class="lightboxContent"> <div class="check"></div> <br> <br> 
+<button class="innerButton">This November! for real!</button> 
+</div></div></amp-lightbox> 
+<div tabindex="3" role="button" hidden id="thirdPrompt" on="tap:my-lightbox3" class="lightboxBtnContainer">
+<button class="lightboxBtn"> Really really?! </button> </div> 
+<div hidden id="finalPrompt"> <a href="https://en.wikipedia.org/wiki/New_Zealand"> <p style="text-align: center"> <amp-img class="smImg" alt="aotearoa" src="img/aotearoa.png" width="338" height="338" layout="fixed" > </amp-img> </p> </a> 
+<h1>Redeeming those flights that got cancelled in 2020... it is time to make up for lost time!</h1> 
+<h1>Can't wait to be in Aotearoa New Zealand</h1>
+ <footer class="footer"> <a href="./story.html" >
+<h1>Web Story about the airbridge and why I got this domain... </h1> </a> 
+</footer> 
+</div> 
+</div> 
+<a style="text-align: center" href="https://github.com/airbr">
+<h5>An excuse to learn some AMP @ https://github.com/airbr/amp-encouragement </h5> </a>
 
-    .container {
-      min-height: 100vh;
-      background: #eee;
-      overflow: hidden;
-    }
-
-    .stream {
-      margin: 64px 8px;
-    }
-
-    .card {
-      background: #fff;
-      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
-      padding: 8px;
-      margin: 8px 0;
-    }
-
-    .card a {
-      text-decoration: none;
-    }
-
-    .card h4 {
-      margin: 8px 0;
-      font-size: 16px;
-      color: rgba(0,0,0,0.95);
-    }
-
-    .card .detail {
-      margin: 8px 0;
-      font-size: 14px;
-      color: rgba(0,0,0,0.87);
-    }
-
-    .amp-slot {
-      padding: 16px;
-      font-size: larger;
-      background: cyan;
-    }
-  </style>
-
-    <style>
-  .bodyStyle {
-       font-size: 32px;
-        }
-    </style>
-   
-
-</head>
-<body>
-<div class="bodyStyle">
-    
-    <h1>Maliek News</h1>
-    </div>
-    
-  
-  <div class="container">
-    <section id="stream" class="stream">
-      <article class="card">
-        <a href="/pwa/examples/article.amp.html">
-          <h4>Article</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/youtube.amp.html">
-          <h4>YouTube Ads</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/analytics.amp.html">
-          <h4>Analytics Amp</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/a4a.amp.html">
-          <h4>A4A News</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/bind/basic.amp.html">
-          <h4>Maliek News</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/analytics.amp.html">
-          <h4>Answers</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/a4a.amp.html">
-          <h4>A4A Ads</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/bind/basic.amp.html">
-          <h4>Articles</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/pwa/examples/analytics.amp.html">
-          <h4>Analytics Ads</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href=" html">
-          <h4>Analytics</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-      <article class="card">
-        <a href="/ads.html">
-          <h4>Advertisement</h4>
-          <div class="detail">Fusce pretium tempor justo, vitae consequat dolor maximus eget.</div>
-        </a>
-      </article>
-    </section>
-
-    
-
-  <!-- Must be in the very end. -->
-  <script src="/pwa.js"></script>
-</body>
+ </body> 
 </html>
